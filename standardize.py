@@ -12,6 +12,12 @@ def standardize_targets(y):
         mean: float, the mean of the original targets
         std: float, the standard deviation of the original targets
     """
+    # Calculate mean and standard deviation
+    mean = np.mean(y)
+    std = np.std(y)
+    
+    # Standardize the targets
+    y_standardized = (y - mean) / std
     
     return y_standardized, mean, std
 
@@ -30,6 +36,7 @@ def unstandardize_targets(y_standardized, mean, std):
     Returns:
         y : array-like, shape (n_samples,)
     """
-    # YOUR CODE HERE
-
+    # Reverse the standardization
+    y = (y_standardized * std) + mean
+    
     return y

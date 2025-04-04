@@ -1,7 +1,6 @@
 import numpy as np
 from l2distance import l2_distance
 
-# Define the kernel function (RBF kernel)
 def rbf_kernel(x1, x2, kpar):
     """
     Radial Basis Function (RBF) kernel (Gaussian kernel).
@@ -14,6 +13,11 @@ def rbf_kernel(x1, x2, kpar):
     Returns:
         K: the kernel matrix; array-like, has dimensions (n,n)
     """
-    # YOUR CODE HERE
-
+    # RBF kernel: exp(-gamma * ||x-z||^2)
+    # First compute the squared distance matrix
+    squared_distances = l2_distance(x1, x2) ** 2
+    
+    # Apply the RBF formula with gamma = kpar
+    rbf_kern = np.exp(-kpar * squared_distances)
+    
     return rbf_kern

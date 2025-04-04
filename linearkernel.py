@@ -11,6 +11,7 @@ def linear_kernel(x1, x2):
     Returns:
         K: the kernel matrix; array, has dimension nxn
     """
-    # YOUR CODE HERE
-
+    # Linear kernel is simply the dot product between the inputs
+    lin_kernel = np.dot(x1.T, x2)
+    
     return lin_kernel
